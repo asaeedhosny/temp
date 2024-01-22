@@ -4,6 +4,8 @@ on:
     inputs:
       environment:
         type: environment
+        options:
+        - hello
         required: true
         description: Environment
         default: 'hello'
