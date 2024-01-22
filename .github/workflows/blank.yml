@@ -6,7 +6,7 @@ on:
         type: environment
         required: true
         description: Environment
-        default: no
+        default: 'hello'
 jobs:
   build:
     runs-on: ubuntu-latest
