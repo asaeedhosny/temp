@@ -2,13 +2,14 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      type: choice
-      description: Make a choice
-      options:
-      - foo
-      - bar
-      - baz
-      required: true
+      choice:
+        type: choice
+        description: Make a choice
+        options:
+        - foo
+        - bar
+        - baz
+        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
