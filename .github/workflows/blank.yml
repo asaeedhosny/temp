@@ -2,16 +2,11 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      choice:
-        type: choice
-        description: Make a choice
-        options:
-        - ''
-        - foo
-        - bar
-        - baz
+      environment:
+        type: environment
         required: true
-        default: ""
+        description: Environment
+        default: ''
 jobs:
   build:
     runs-on: ubuntu-latest
