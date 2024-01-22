@@ -10,7 +10,7 @@ on:
         - bar
         - baz
         required: true
-        default: ''
+        default: ""
 jobs:
   build:
     runs-on: ubuntu-latest
