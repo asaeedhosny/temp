@@ -69,3 +69,4 @@ sda.repeat(5)
 | Method | Paramters|
 |--------|----------|
 | `eat()` |  food as text       |
+
