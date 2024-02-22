@@ -22,4 +22,8 @@ jobs:
           tag_name: v${{ inputs.major }}.${{ inputs.minor }}.${{ inputs.batch }}
           generate_release_notes: true
           draft: false
-          prerelease: true
+          prerelease: false
+      - name: Create version branch
+        runs: |
+          git checkout -b v${{ inputs.major }}.${{ inputs.minor }}.x
+          git push origin v${{ inputs.major }}.${{ inputs.minor }}.x
