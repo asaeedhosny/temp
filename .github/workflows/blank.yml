@@ -23,7 +23,9 @@ jobs:
           generate_release_notes: true
           draft: false
           prerelease: false
-      - name: Create version branch
+      - name: Create release branch
+        if: inputs.batch == '0'
         run: |
-          git checkout -b v${{ inputs.major }}.${{ inputs.minor }}.x
+          git branch 
+          git branch v${{ inputs.major }}.${{ inputs.minor }}.x || true
           git push origin v${{ inputs.major }}.${{ inputs.minor }}.x
