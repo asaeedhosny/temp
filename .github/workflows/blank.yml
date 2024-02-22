@@ -16,6 +16,8 @@ jobs:
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
+        permissions:
+          contents: write
         with:
           tag_name: v${{ inputs.major }}.${{ inputs.minor }}.${{ inputs.batch }}
           generate_release_notes: true
