@@ -15,14 +15,9 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          VERSION: v${{ inputs.major }}.${{ inputs.minor }}.${{ inputs.batch }}
+        uses: softprops/caction-gh-release
         with:
-          tag_name: ${{ vars.VERSION }}
-          release_name: ${{ vars.VERSION }}
+          tag_name: v${{ inputs.major }}.${{ inputs.minor }}.${{ inputs.batch }}
           generate_release_notes: true
           draft: false
           prerelease: true
