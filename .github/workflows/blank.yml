@@ -14,8 +14,11 @@ jobs:
       
       - name: test
         run: |
-          for i in {1..5}
+          task_number=1
+          for PATTERN in ${{inputs.test}}
           do
-            touch $(echo ${i}).txt
+            echo "Item: $PATTERN"
+            echo $task_number
+            ((task_number++))
           done
           
