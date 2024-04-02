@@ -19,7 +19,7 @@ jobs:
           do
             echo "Item: $PATTERN"
             echo $task_number
-            touch "$PATTERN"
+            cd "$PATTERN"
             ((task_number++))
           done
           
