@@ -2,12 +2,8 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      major:
-        type: text
-      minor:
-        type: text
-      batch:
-        type: text
+      test:
+        default: ABC def ghi
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,16 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ inputs.major }}.${{ inputs.minor }}.${{ inputs.batch }}
-          generate_release_notes: true
-          draft: false
-          prerelease: false
-      - name: Create release branch
-        if: inputs.batch == '0'
+      - name: test
         run: |
-          git branch 
-          git branch v${{ inputs.major }}.${{ inputs.minor }}.x || true
-          git push origin v${{ inputs.major }}.${{ inputs.minor }}.x
+          for item in ${{ inputs.test }}
+          do
+            echo "item=${item}" >> $GITHUB_ENV
+            hello ${{ env.item }}
+          done
+          
