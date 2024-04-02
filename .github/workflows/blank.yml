@@ -17,8 +17,10 @@ jobs:
           task_number=1
           for PATTERN in ${{inputs.test}}
           do
+            echo "PATTERN=${PATTERN}" >> $GITHUB_ENV
             echo "Item: $PATTERN"
             echo $task_number
+            touch ${{ env.PATTERN }}
             ((task_number++))
           done
           
