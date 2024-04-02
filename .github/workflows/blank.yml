@@ -16,6 +16,6 @@ jobs:
         run: |
           for i in {1..5}
           do
-            touch i.txt
+            touch $(i).txt
           done
           
