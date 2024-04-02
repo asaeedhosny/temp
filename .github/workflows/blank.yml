@@ -14,9 +14,8 @@ jobs:
       
       - name: test
         run: |
-          for item in ${{ inputs.test }}
+          for i in {1..5}
           do
-            echo "item=${item}" >> $GITHUB_ENV
-            touch $item.txt
+            touch $i.txt
           done
           
