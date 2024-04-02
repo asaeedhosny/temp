@@ -14,13 +14,12 @@ jobs:
       
       - name: test
         run: |
-          echo "PATTERN=${PATTERN}" >> $GITHUB_ENV
           task_number=1
           for PATTERN in ${{inputs.test}}
           do
             echo "Item: $PATTERN"
             echo $task_number
-            touch ${{ env.PATTERN }}
+            touch "$PATTERN"
             ((task_number++))
           done
           
